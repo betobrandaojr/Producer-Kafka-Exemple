@@ -36,8 +36,11 @@ Este é um exemplo de aplicação Spring Boot com Java 17 que atua como um produ
     ```sh
     Inicialização varia de IDE para IDE.
     ```
-6. No endereço http://localhost:19000/ é possivel visualizar a interface do kafka e acompanhar os topicos criados:
 
+6. É possível testar o envio de mensagens de forma rápida e fácil pela documentação do Swagger no endereço [http://localhost:8081/producer/swagger-ui/index.html#/](http://localhost:8081/producer/swagger-ui/index.html#/):
+![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/311dd841-6ed1-4294-b391-8305033d8eae)
+
+7. No endereço [http://localhost:19000/](http://localhost:19000/) é possível visualizar a interface do Kafka e acompanhar os tópicos criados:
 ![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/9044d4d0-f1af-4957-b20f-af63c734dbd9)
 
 ## Estrutura do Projeto 📁
@@ -49,8 +52,6 @@ Este é um exemplo de aplicação Spring Boot com Java 17 que atua como um produ
 ## Contato ✉️
 
 Se você tiver alguma dúvida, sinta-se à vontade para abrir uma [issue](https://github.com/betobrandaojr/Producer-Kafka-Exemple/issues) ou entrar em contato.
-
-
 ---
 # Producer Kafka Example 🛠️
 
@@ -90,8 +91,11 @@ This is an example of a Spring Boot application with Java 17 that acts as a Kafk
     ```sh
     Initialization varies from IDE to IDE.
     ```
-6. You can view the Kafka interface and monitor the created topics at http://localhost:19000/:
 
+6. You can quickly and easily test message sending using the Swagger documentation at [http://localhost:8081/producer/swagger-ui/index.html#/](http://localhost:8081/producer/swagger-ui/index.html#/):
+![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/311dd841-6ed1-4294-b391-8305033d8eae)
+
+7. You can view the Kafka interface and monitor the created topics at [http://localhost:19000/](http://localhost:19000/):
 ![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/9044d4d0-f1af-4957-b20f-af63c734dbd9)
 
 ## Project Structure 📁
