@@ -1,6 +1,10 @@
 package br.com.bandao.ProducerExemple.controller.Object;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +19,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import br.com.bandao.ProducerExemple.dto.PostObjectMessageDTO;
 import br.com.bandao.ProducerExemple.dto.PutObjectMessageDTO;
 import br.com.bandao.ProducerExemple.model.ObjectMessage;
+import br.com.bandao.ProducerExemple.service.Object.ObjectMessageService;
 import br.com.bandao.ProducerExemple.service.message.MessageService;
 
 @RestController
@@ -26,6 +31,9 @@ public class ObjectController {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    @Autowired
+    private ObjectMessageService objectMessageService;
 
     @PostMapping
     public void createObject(@RequestBody PostObjectMessageDTO objectDTO) throws JsonProcessingException {
@@ -42,13 +50,19 @@ public class ObjectController {
     }
 
     @GetMapping("/{id}")
-    public ObjectMessage getObject(@PathVariable Long id) {
-        return new ObjectMessage();
+    public ResponseEntity<ObjectMessage> getById(@PathVariable Long id) {
+        Optional<ObjectMessage> objectMessage = objectMessageService.getById(id);
+        if (objectMessage.isPresent()) {
+            return ResponseEntity.ok(objectMessage.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    @GetMapping("List")
-    public ObjectMessage getObjectList() {
-        return new ObjectMessage();
+    @GetMapping
+    public ResponseEntity<List<ObjectMessage>> getAll() {
+        List<ObjectMessage> objectMessages = objectMessageService.getAll();
+        return ResponseEntity.ok(objectMessages);
     }
 
 }

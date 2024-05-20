@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.bandao.ProducerExemple.dto.PostObjectMessageDTO;
-import br.com.bandao.ProducerExemple.dto.PutObjectMessageDTO;
-import br.com.bandao.ProducerExemple.model.ObjectMessage;
 import br.com.bandao.ProducerExemple.repository.ObjectRepository;
+import br.com.bandao.ProducerExemple.dto.PostObjectMessageDTO;
+import br.com.bandao.ProducerExemple.model.ObjectMessage;
+
 import br.com.bandao.ProducerExemple.service.message.MessageService;
 
 @Service
@@ -41,7 +41,7 @@ public class ObjectMessageService {
     }
 
     // metod "update"
-    public void update(Long id, PutObjectMessageDTO dto) {
+    public void update(Long id, PostObjectMessageDTO dto) {
         try {
             Optional<ObjectMessage> existingObject = objectRepository.findById(id);
             if (existingObject.isPresent()) {
@@ -62,21 +62,21 @@ public class ObjectMessageService {
     // metod "getById"
     public Optional<ObjectMessage> getById(Long id) {
         try {
-            return this.objectRepository.findById(id);
+            return objectRepository.findById(id);
         } catch (Exception e) {
             throw new RuntimeException("Error getting ObjectMessage by id", e);
         }
     }
-
+    
     // metod "getAll"
     public List<ObjectMessage> getAll() {
         try {
-            return this.objectRepository.findAll();
+            return objectRepository.findAll();
         } catch (Exception e) {
             throw new RuntimeException("Error getting all objects", e);
         }
     }
-
+    
     // convert dto to entity
     private ObjectMessage convertDtoToEntity(PostObjectMessageDTO dto) {
         ObjectMessage obj = new ObjectMessage();
