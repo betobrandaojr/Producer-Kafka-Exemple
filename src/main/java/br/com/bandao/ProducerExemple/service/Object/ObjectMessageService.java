@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import br.com.bandao.ProducerExemple.repository.ObjectRepository;
-import br.com.bandao.ProducerExemple.dto.ObjectMessageDTO;
+import br.com.bandao.ProducerExemple.dto.PostObjectMessageDTO;
+import br.com.bandao.ProducerExemple.dto.PutObjectMessageDTO;
 import br.com.bandao.ProducerExemple.model.ObjectMessage;
-
+import br.com.bandao.ProducerExemple.repository.ObjectRepository;
 import br.com.bandao.ProducerExemple.service.message.MessageService;
 
 @Service
@@ -28,7 +28,7 @@ public class ObjectMessageService {
     private ObjectMapper objectMapper;
     
     // metod "save"
-    public void save(ObjectMessageDTO dto) {
+    public void save(PostObjectMessageDTO dto) {
         try {
             ObjectMessage obj = convertDtoToEntity(dto);
             String message = objectMapper.writeValueAsString(obj);
@@ -41,7 +41,7 @@ public class ObjectMessageService {
     }
 
     // metod "update"
-    public void update(Long id, ObjectMessageDTO dto) {
+    public void update(Long id, PutObjectMessageDTO dto) {
         try {
             Optional<ObjectMessage> existingObject = objectRepository.findById(id);
             if (existingObject.isPresent()) {
@@ -78,7 +78,7 @@ public class ObjectMessageService {
     }
 
     // convert dto to entity
-    private ObjectMessage convertDtoToEntity(ObjectMessageDTO dto) {
+    private ObjectMessage convertDtoToEntity(PostObjectMessageDTO dto) {
         ObjectMessage obj = new ObjectMessage();
         obj.setName(dto.getName());
         return obj;

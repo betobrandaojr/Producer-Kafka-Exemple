@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ObjectMessageDTO {
+public class PutObjectMessageDTO {
     
+    private Long id;
     private String name;
     
 }
