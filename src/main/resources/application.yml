@@ -1,12 +1,18 @@
 spring:
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
   kafka:
     producer:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  datasource:
+    url: jdbc:postgresql://localhost:5432/kafka
+    username: postgres
+    password: postgres
 
 topic:
-    exemple-kafka: topic_exemple_kafka
+  exemple-kafka: topic_exemple_kafka
 
 server:
   port: 8081
