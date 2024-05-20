@@ -38,7 +38,8 @@ Este é um exemplo de aplicação Spring Boot com Java 17 que atua como um produ
     ```
 
 6. É possível testar o envio de mensagens de forma rápida e fácil pela documentação do Swagger no endereço [http://localhost:8081/producer/swagger-ui/index.html#/](http://localhost:8081/producer/swagger-ui/index.html#/):
-![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/311dd841-6ed1-4294-b391-8305033d8eae)
+![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/9d11a6cb-69f1-4614-86c4-0b39bd2536aa)
+
 
 7. No endereço [http://localhost:19000/](http://localhost:19000/) é possível visualizar a interface do Kafka e acompanhar os tópicos criados:
 ![image](https://github.com/betobrandaojr/Producer-Kafka-Exemple/assets/59041231/9044d4d0-f1af-4957-b20f-af63c734dbd9)
